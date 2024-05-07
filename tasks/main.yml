@@ -17,6 +17,14 @@
 # Setup/install tasks.
 - include_tasks: "setup-{{ ansible_os_family }}.yml"
 
+- name: Ensure the Document Root directory exists
+  ansible.builtin.file:
+     path: "/var/www/{{ morpheus['customOptions']['ApacheDocumentRoot'] }}"
+     state: directory
+     owner: "root"
+     group: "root"
+     mode: '0755'
+
 # Figure out what version of Apache is installed.
 - name: Get installed version of Apache.
   command: "{{ apache_daemon_path }}{{ apache_daemon }} -v"

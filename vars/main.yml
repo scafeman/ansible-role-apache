@@ -1,6 +1,5 @@
 apache_vhosts:
-  {
-    ServerName: "{{ morpheus['customOptions']['ApacheServerName'] }}",
+  - { ServerName: "{{ morpheus['customOptions']['ApacheServerName'] }}",
     ServerAlias: "{{ morpheus['customOptions']['ApacheServerAlias'] }}",
     DocumentRoot: "/var/www/{{ morpheus['customOptions']['ApacheDocumentRoot'] }}"
-  }
+    }
